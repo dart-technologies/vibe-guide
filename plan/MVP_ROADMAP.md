@@ -1,7 +1,9 @@
 # MVP Roadmap
 
 ## Deadline
-- [ ] Submit TestFlight build + demo video to Devpost by **Wed Dec 17, 2025, 5pm ET**.
+- [x] Submit TestFlight build + demo video to Devpost by **Wed Dec 17, 2025, 5pm ET**.
+  - **TestFlight**: [https://testflight.apple.com/join/tPxPbsYb](https://testflight.apple.com/join/tPxPbsYb)
+  - **Demo Video**: [https://www.youtube.com/watch?v=YIzC-U-JhUI](https://www.youtube.com/watch?v=YIzC-U-JhUI)
 
 ---
 
@@ -127,11 +129,11 @@ Format: `"Current context: Saturday afternoon, partly cloudy, 57°F in Manhattan
 - [x] No crashes on background/foreground transitions (AppState watcher for visibility changes)
 
 ### Demo Prep
-- [ ] TestFlight build submitted Day 9
-- [ ] Demo recorded on physical iOS device
-- [ ] Video edited to 3 min
-- [ ] Devpost assets packaged (screenshots, description)
-- [ ] Submit
+- [x] TestFlight build submitted Day 9
+- [x] Demo recorded on physical iOS device
+- [x] Video edited to 3 min
+- [x] Devpost assets packaged (screenshots, description)
+- [x] Submit
 
 ---
 

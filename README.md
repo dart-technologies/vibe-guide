@@ -2,6 +2,10 @@
 
 AI Concierge built for the [Yelp AI Hackathon](https://yelp-ai.devpost.com/). Discover your city through 10 distinct voiced personas.
 
+## 📱 Live Demo
+- **iOS TestFlight**: [Join the Beta](https://testflight.apple.com/join/tPxPbsYb)
+- **Demo Video**: [Watch on YouTube](https://www.youtube.com/watch?v=YIzC-U-JhUI)
+
 ## 🚀 Quick Start
 ```bash
 git clone https://github.com/dart-technologies/vibe-guide.git
