@@ -37,7 +37,7 @@ class YelpSession {
 ## Persona Rewrite Flow
 1) Prepend persona system text to the user query (pre-Yelp) only when tone matters.  
 2) Call Yelp AI; keep entities untouched.  
-3) Use GPT-5 to rewrite `response.text` into persona voice; attach as `persona_text`.  
+3) Use GPT-5 (4o-mini) to rewrite `response.text` into persona voice; attach as `persona_text` (Apple Foundation Models optional when `EXPO_PUBLIC_REWRITE_PROVIDER=apple`).  
 4) Stream ElevenLabs TTS from `persona_text`.  
 5) Fall back to original `response.text` on errors.
 

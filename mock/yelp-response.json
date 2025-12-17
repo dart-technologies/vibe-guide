@@ -1,0 +1,46 @@
+{
+  "chat_id": "mock-chat-id",
+  "response": {
+    "text": "Let's hit Yu & Me Books, then McNally Jackson, and finish with Stafili Wine Cafe."
+  },
+  "entities": [
+    {
+      "businesses": [
+        {
+          "id": "1",
+          "name": "Yu & Me Books",
+          "url": "https://example.com/yu",
+          "rating": 4.9,
+          "price": "$$",
+          "phone": "+10000000001",
+          "categories": [
+            {"title": "Bookstores"}
+          ]
+        },
+        {
+          "id": "2",
+          "name": "McNally Jackson",
+          "url": "https://example.com/mcnally",
+          "rating": 4.4,
+          "price": "$$",
+          "phone": "+10000000002",
+          "categories": [
+            {"title": "Bookstores"}
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Stafili Wine Cafe",
+          "url": "https://example.com/stafili",
+          "rating": 3.9,
+          "price": "$$$",
+          "phone": "+10000000003",
+          "categories": [
+            {"title": "Wine Bars"}
+          ]
+        }
+      ],
+      "reservation_url": "https://example.com/reserve"
+    }
+  ]
+}

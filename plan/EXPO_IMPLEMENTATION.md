@@ -47,7 +47,8 @@ components/
   JourneyTimeline.tsx
 services/
   yelp.ts      // POST chat/v2 + chat_id persistence
-  openai.ts    // persona rewrite using GPT-5
+  rewrite.ts   // provider switch (OpenAI default, Apple on-device optional)
+  openai.ts    // OpenAI rewrite (4o-mini, timeout + fallback)
   voice.ts     // ElevenLabs TTS streaming + cache
 constants/
   personas.ts  // persona prompts, voice IDs, avatars
@@ -59,7 +60,7 @@ hooks/
 ```
 
 ## Core Flows
-- Query path: `user input` → persona preface → Yelp AI → persona rewrite → TTS stream
+- Query path: `user input` → persona preface → Yelp AI → persona rewrite (OpenAI or Apple Foundation Models via `EXPO_PUBLIC_REWRITE_PROVIDER`) → TTS stream
 - Store chat transcript locally; rehydrate on app resume to reuse `chat_id`
 - Journey timeline built from `entities` with ETA heuristics by category
 

@@ -4,9 +4,9 @@ Target: **Time-to-first-audio under 3 seconds** on Wi-Fi. This is critical for d
 
 ## The Problem
 
-Full chain latency:
+Full chain latency (current targets):
 ```
-User input → Yelp AI (~800ms) → GPT-5 rewrite (~1200ms) → ElevenLabs TTS (~1500ms) = ~3.5s
+User input → Yelp AI (~800ms) → Persona rewrite (OpenAI 4o-mini or Apple FM if available, ~1s target) → ElevenLabs TTS (~1500ms) = ~3.5s
 ```
 
 That's too long for a demo. Users will think the app is frozen.
@@ -36,9 +36,9 @@ Each persona has a 2-3 second "thinking" greeting that plays immediately:
 
 ```ts
 // hooks/useChat.ts
-import { Audio } from 'expo-av';
+import * as Audio from 'expo-audio';
 
-const greetingClips: Record<PersonaId, Asset> = {
+const greetingClips: Record<PersonaId, number> = {
   francesca: require('../assets/greetings/francesca.mp3'),
   nora: require('../assets/greetings/nora.mp3'),
   // ... all 10
@@ -49,20 +49,28 @@ async function sendMessage(query: string, personaId: PersonaId) {
   setIsThinking(true);
 
   // 2. Play greeting clip (non-blocking)
-  const greeting = await Audio.Sound.createAsync(greetingClips[personaId]);
-  greeting.sound.playAsync();
+  const player = Audio.createAudioPlayer(greetingClips[personaId]);
+  player.play();
 
   // 3. Fire Yelp + GPT-5 in parallel with greeting playback
   const [yelpResponse, _] = await Promise.all([
     fetchYelp(query, location),
-    greeting.sound.getStatusAsync(), // wait for greeting to finish
+    new Promise(resolve => {
+        const sub = player.addListener('playbackStatusUpdate', (status) => {
+            if (status.didJustFinish) {
+                sub.remove();
+                resolve(true);
+            }
+        });
+    }),
   ]);
 
   const rewrittenText = await rewriteWithPersona(personaId, query, yelpResponse);
 
   // 4. Stream real TTS (greeting is done by now)
-  const ttsAudio = await fetchElevenLabs(rewrittenText, getTTSConfig(personaId));
-  await ttsAudio.playAsync();
+  const ttsUri = await fetchElevenLabs(rewrittenText, getTTSConfig(personaId));
+  const ttsPlayer = Audio.createAudioPlayer(ttsUri);
+  ttsPlayer.play();
 
   setIsThinking(false);
 }

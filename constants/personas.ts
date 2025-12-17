@@ -30,7 +30,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'Soft American/neutral',
     tone: 'Gentle curator, thoughtful',
     colors: { primary: '#6A0DAD', accent: '#708090' },
-    tts: { voiceId: 'MF3mGyEYCl7XYWbV9V6O', stability: 0.7, similarityBoost: 0.8, style: 0.6 },
+    tts: { voiceId: 'XfNU2rGpBa01ckF309OY', stability: 0.7, similarityBoost: 0.8, style: 0.6 },
     preface:
       'Context: Art/design curator. Prioritize galleries, design shops, contemplative spaces. Keep Yelp facts intact.',
     rewrite:
@@ -43,7 +43,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'American',
     tone: 'Theatrical, upbeat, showtime hype',
     colors: { primary: '#B22222', accent: '#D4AF37' },
-    tts: { voiceId: 'TxGEqnHWrfWFTfGW9XjX', stability: 0.6, similarityBoost: 0.75, style: 0.85 },
+    tts: { voiceId: 'CwhRBWXzGAHq8TQ4Fs17', stability: 0.6, similarityBoost: 0.75, style: 0.85 },
     preface:
       'Context: Theater-first guide. Prioritize shows, pre/post-theater dining, dramatic flair. Keep Yelp facts intact.',
     rewrite:
@@ -56,7 +56,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'Gentle American',
     tone: 'Soft, literary, soothing',
     colors: { primary: '#A0522D', accent: '#F5DEB3' },
-    tts: { voiceId: 'pMsXgVXv3BLzUgSXRplE', stability: 0.75, similarityBoost: 0.8, style: 0.5 },
+    tts: { voiceId: 'EXAVITQu4vr4xnSDxMaL', stability: 0.75, similarityBoost: 0.8, style: 0.5 },
     preface:
       'Context: Quiet, bookish experiences. Prioritize bookstores, calm cafes, reflective spaces. Keep Yelp facts intact.',
     rewrite:
@@ -69,7 +69,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'British RP',
     tone: 'Polished critic, refined, minimal exclamations',
     colors: { primary: '#D4AF37', accent: '#8B7355' },
-    tts: { voiceId: 'pNInz6obpgDQGcFmaJgB', stability: 0.7, similarityBoost: 0.8, style: 0.5 },
+    tts: { voiceId: 'MWUpoNpAY0rOQGP294mF', stability: 0.7, similarityBoost: 0.8, style: 0.5 },
     preface:
       'Context: You are a sophisticated British food critic. Prioritize chef-driven dining, pairings, provenance. Keep Yelp facts intact.',
     rewrite:
@@ -82,7 +82,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'Polished American/neutral',
     tone: 'Elegant, composed, upscale',
     colors: { primary: '#C0C0C0', accent: '#000000' },
-    tts: { voiceId: 'XB0fDUnXU5powFXDhCwa', stability: 0.65, similarityBoost: 0.75, style: 0.65 },
+    tts: { voiceId: 'FGY2WhTYpPnrIDTdsKH5', stability: 0.65, similarityBoost: 0.75, style: 0.65 },
     preface:
       'Context: Luxury host. Prioritize premium dining, art house luxury, elevated service. Keep Yelp facts intact.',
     rewrite:
@@ -95,7 +95,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'American',
     tone: 'Coach energy, motivational, endurance-focused',
     colors: { primary: '#20B2AA', accent: '#FF7F50' },
-    tts: { voiceId: '2EiwWnXFnvU5JabPnv8n', stability: 0.65, similarityBoost: 0.75, style: 0.8 },
+    tts: { voiceId: 'Fc5CaIGWKvLHapoOSM2K', stability: 0.65, similarityBoost: 0.75, style: 0.8 },
     preface:
       'Context: Active itineraries. Prioritize movement, recovery, healthy refuels. Keep Yelp facts intact.',
     rewrite:
@@ -108,7 +108,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'American',
     tone: 'Sultry insider, playful, hints at secrets',
     colors: { primary: '#4B0082', accent: '#FF1493' },
-    tts: { voiceId: '21m00Tcm4TlvDq8ikWAM', stability: 0.65, similarityBoost: 0.8, style: 0.8 },
+    tts: { voiceId: 'XfNU2rGpBa01ckF309OY', stability: 0.65, similarityBoost: 0.8, style: 0.8 },
     preface:
       'Context: Insider nightlife guide. Prioritize speakeasies, late-night eats, progressive evening flows. Keep Yelp facts intact.',
     rewrite:
@@ -121,7 +121,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'NYC Italian-American',
     tone: 'Animated tutor, passionate',
     colors: { primary: '#FF0000', accent: '#228B22' },
-    tts: { voiceId: 'VR6AewLTigWG4xSOukaG', stability: 0.7, similarityBoost: 0.8, style: 0.75 },
+    tts: { voiceId: 'N2lVS1w4EtoT3dr4eOWO', stability: 0.7, similarityBoost: 0.8, style: 0.75 },
     preface:
       'Context: Pizza education and NYC pride. Prioritize iconic slices, contrasting styles, quick flows. Keep Yelp facts intact.',
     rewrite:
@@ -134,7 +134,7 @@ export const PERSONAS: PersonaDefinition[] = [
     accent: 'NYC casual',
     tone: 'Friendly, direct, value-focused',
     colors: { primary: '#FF4500', accent: '#228B22' },
-    tts: { voiceId: 'ErXwobaYiN019PkySvjV', stability: 0.7, similarityBoost: 0.75, style: 0.55 },
+    tts: { voiceId: 'CwhRBWXzGAHq8TQ4Fs17', stability: 0.7, similarityBoost: 0.75, style: 0.55 },
     preface:
       'Context: Neighborhood eats and value. Prioritize authentic, affordable spots. Keep Yelp facts intact.',
     rewrite:

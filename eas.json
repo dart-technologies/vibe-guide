@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 5.8.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_BUNDLE_IDENTIFIER": "art.dart.vibe",
+        "EXPO_ANDROID_PACKAGE": "art.dart.vibe"
+      }
+    },
+    "preview": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_BUNDLE_IDENTIFIER": "art.dart.vibe",
+        "EXPO_ANDROID_PACKAGE": "art.dart.vibe"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "env": {
+        "EXPO_BUNDLE_IDENTIFIER": "art.dart.vibe",
+        "EXPO_ANDROID_PACKAGE": "art.dart.vibe"
+      }
+    }
+  }
+}

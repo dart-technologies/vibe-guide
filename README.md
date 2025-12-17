@@ -1,18 +1,21 @@
-# Vibe Guide: Moment Match
+# Vibe Guide: Mood Match 🎭
 
-Built for the [Yelp AI Hackathon](https://yelp-ai.devpost.com/)
+AI Concierge built for the [Yelp AI Hackathon](https://yelp-ai.devpost.com/). Discover your city through 10 distinct voiced personas.
 
-AI concierge that answers the same question in ten different voices. Powered by Yelp AI for facts, GPT-5 for tone, and ElevenLabs for playback. Primary target: Expo iOS (TestFlight); Android/web are optional later.
-
-## Quick Start (Expo iOS)
+## 🚀 Quick Start
 ```bash
-npx create-expo-app vibe-guide --template
+git clone https://github.com/dart-technologies/vibe-guide.git
 cd vibe-guide
-npx expo install expo-audio expo-file-system expo-location
-npm install openai axios
+cp .env.example .env   # fill in your keys
+npm install
 npx expo start
 ```
-Built on **Expo SDK 54**. Set env vars: `EXPO_PUBLIC_YELP_API_KEY`, `EXPO_PUBLIC_OPENAI_API_KEY`, `EXPO_PUBLIC_ELEVENLABS_API_KEY`. Build/structure details live in `plan/EXPO_IMPLEMENTATION.md`.
+Built on **Expo SDK 54**. Required env vars: `EXPO_PUBLIC_YELP_API_KEY`, `EXPO_PUBLIC_OPENAI_API_KEY`, `EXPO_PUBLIC_ELEVENLABS_API_KEY`, `EXPO_PUBLIC_OPENWEATHERMAP_API_KEY`. Optional: `EXPO_PUBLIC_REWRITE_PROVIDER=apple` to force on-device Foundation Models when available (defaults to OpenAI). EAS profile + bundle IDs are pre-set for `art.dart.vibe`.
+
+### Dev Notes
+- Toggle mock data in the chat screen if Yelp AI returns 500/INTERNAL_ERROR.
+- Greeting clips live in `assets/greetings/`; regenerate with `node scripts/generate-greetings.js`.
+- Tests: `npm test` (Vitest). Current coverage: **84.77%** (core services coverage >90%).
 
 ## Personas
 | # | Name | Voice | Specialty |
@@ -30,7 +33,7 @@ Built on **Expo SDK 54**. Set env vars: `EXPO_PUBLIC_YELP_API_KEY`, `EXPO_PUBLIC
 MVP focus: Francesca, Nora, Pete. More cues: `docs/PERSONAS.md`.
 
 ## How It Works
-- Persona wrapper rewrites Yelp AI responses without changing facts.
+- Persona wrapper rewrites Yelp AI responses without changing facts (provider switch: OpenAI by default, Apple on-device when available via `EXPO_PUBLIC_REWRITE_PROVIDER=apple`).
 - `chat_id` from Yelp persists across turns; journeys built from returned entities.
 - ElevenLabs streams persona_text to audio; cached clips per persona for fast replay.
 
@@ -54,6 +57,6 @@ Anchor prompt: "I have 3 hours free right now. Surprise me." Show 3 personas ans
 
 ## Stack
 - Expo (React Native) front end, iOS priority
-- OpenAI GPT-5 for persona rewrite
+- OpenAI GPT-5 (4o-mini) for persona rewrite; Apple Foundation Models optional when available
 - ElevenLabs TTS for character audio
 - Yelp AI chat/v2 for business intelligence
