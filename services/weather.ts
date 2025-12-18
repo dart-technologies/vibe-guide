@@ -7,16 +7,15 @@ export type WeatherSummary = {
   icon?: string;
 };
 
-function requireWeatherKey(): string {
-  const key = process.env.EXPO_PUBLIC_OPENWEATHERMAP_API_KEY;
-  if (!key) {
-    throw new Error('Missing EXPO_PUBLIC_OPENWEATHERMAP_API_KEY env variable');
-  }
-  return key;
+function getWeatherKey(): string | null {
+  return process.env.EXPO_PUBLIC_OPENWEATHERMAP_API_KEY || null;
 }
 
 export async function fetchWeather(lat: number, lon: number): Promise<WeatherSummary> {
-  const apiKey = requireWeatherKey();
+  const apiKey = getWeatherKey();
+  if (!apiKey) {
+    throw new Error('Weather API key is missing.');
+  }
   const url = `${WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
 
   const res = await fetch(url);

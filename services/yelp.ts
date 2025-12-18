@@ -51,12 +51,8 @@ type YelpChatPayload = {
   chat_id?: string;
 };
 
-function requireApiKey(): string {
-  const key = process.env.EXPO_PUBLIC_YELP_API_KEY;
-  if (!key) {
-    throw new Error('Missing EXPO_PUBLIC_YELP_API_KEY env variable');
-  }
-  return key;
+function getApiKey(): string | null {
+  return process.env.EXPO_PUBLIC_YELP_API_KEY || null;
 }
 
 async function sleep(ms: number) {
@@ -116,10 +112,10 @@ const YELP_FUSION_URL = 'https://api.yelp.com/v3';
 
 export class YelpSession {
   private chatId?: string;
-  private readonly apiKey: string;
+  private readonly apiKey: string | null;
 
   constructor(apiKey?: string) {
-    this.apiKey = apiKey ?? requireApiKey();
+    this.apiKey = apiKey ?? getApiKey();
   }
 
   reset() {
@@ -135,6 +131,10 @@ export class YelpSession {
   }
 
   async sendChat(query: string, userContext: YelpUserContext): Promise<YelpChatResponse> {
+    if (!this.apiKey) {
+      throw new Error('Yelp API key is missing. Please check your environment variables or EAS secrets.');
+    }
+
     const payload: YelpChatPayload = {
       query,
       user_context: userContext,
@@ -170,7 +170,8 @@ export class YelpSession {
 }
 
 export async function reverseGeocodeYelp(lat: number, lng: number): Promise<string | null> {
-  const apiKey = requireApiKey();
+  const apiKey = getApiKey();
+  if (!apiKey) return null;
   try {
     // Search for closest business to get "neighborhood" or "city" context
     const res = await axios.get(`${YELP_FUSION_URL}/businesses/search`, {

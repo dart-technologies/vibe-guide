@@ -1,6 +1,6 @@
 {
   "name": "vibe-guide",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@amplitude/analytics-react-native": "^1.5.16",
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "expo": "~54.0.29",
@@ -24,6 +25,7 @@
     "expo-file-system": "~19.0.21",
     "expo-haptics": "~15.0.8",
     "expo-image": "^3.0.11",
+    "expo-keep-awake": "~15.0.8",
     "expo-linear-gradient": "~15.0.8",
     "expo-linking": "~8.0.10",
     "expo-location": "~19.0.8",
@@ -47,5 +49,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "resolutions": {
+    "@react-native-async-storage/async-storage": "2.2.0"
   }
 }

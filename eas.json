@@ -1,6 +1,7 @@
 {
   "cli": {
-    "version": ">= 5.8.0"
+    "version": ">= 5.8.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -21,6 +22,7 @@
     },
     "production": {
       "distribution": "store",
+      "autoIncrement": true,
       "env": {
         "EXPO_BUNDLE_IDENTIFIER": "art.dart.vibe",
         "EXPO_ANDROID_PACKAGE": "art.dart.vibe"
